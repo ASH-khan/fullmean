@@ -1,14 +1,14 @@
 var express  = require( 'express' ),
     path     = require( 'path' ),
     root     = __dirname,
-    port     = process.env.PORT || 8000,
+    port     = process.env.PORT || 5000,
     bp       = require('body-parser'),
     app      = express();
 
 
 app.use( express.static( path.join( root, 'client' )));
 app.use( express.static( path.join( root, 'bower_components' )));
-app.use(bp.json())
+app.use(bp.json());
 
 require('./server/config/db.js');
 require('./server/config/routes.js')(app);
